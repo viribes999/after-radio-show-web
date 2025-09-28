@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFTER RADIO SHOW | Home - El Sonido de una Generación</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* DEFINICIÓN DE COLORES VIBRANTES */
+        :root {
+            --color-bg-oscuro: #0a0a0a;
+            --color-cuerpo-oscuro: #161616;
+            --color-neón-cian: #00ffff; /* Cian Eléctrico */
+            --color-neón-magenta: #ff0099; /* Magenta Intenso */
+            --color-texto: #ffffff;
+        }
+
+        /* ESTILOS GLOBALES Y DE FONDO */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-bg-oscuro);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* CABECERA Y NAVEGACIÓN (CSS Común) - NUEVA VERSIÓN DINÁMICA */
+        /* ------------------------------------------------------------------- */
+        header {
+            display: flex; 
+            justify-content: center; /* Centra los elementos */
+            align-items: flex-end; /* Alinea los elementos por la parte inferior */
+            padding: 20px 40px 0px 40px; /* Más padding arriba para espacio */
+            background-color: var(--color-cuerpo-oscuro);
+            border-bottom: 3px solid var(--color-neón-cian); /* Línea inferior */
+            min-height: 250px; 
+            flex-wrap: nowrap; 
+            gap: 30px; /* Espacio entre los elementos de la cabecera */
+        }
+        
+        .header-item {
+            display: flex; 
+            flex-direction: column;
+            justify-content: flex-end; 
+            align-items: center; 
+            height: 100%;
+            padding-bottom: 5px; /* Pequeño ajuste para que las imágenes no queden pegadas a la línea */
+        }
+        
+        /* Ajuste de tamaños para un look más dinámico */
+        .my-photo, .secondary-logo {
+            max-width: 200px; /* Un poco más pequeños que el central */
+            height: auto; 
+            object-fit: contain; 
+            filter: drop-shadow(0 0 10px rgba(255, 0, 153, 0.5)); /* Sombra neón magenta */
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .main-logo {
+            max-width: 350px; /* Logo principal más grande */
+            height: auto; 
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.7)); /* Sombra neón cian más pronunciada */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Efecto hover en los logos para más dinamismo */
+        .header-item img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px var(--color-neón-cian)) brightness(1.2);
+        }
+
+        /* NAVEGACIÓN FIJA (STICKY) */
+        nav {
+            background-color: #1a1a1a; 
+            padding: 15px 40px;
+            border-bottom: 2px solid var(--color-neón-magenta); 
+            text-align: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        nav a {
+            color: var(--color-neón-magenta); text-decoration: none; text-transform: uppercase;
+            font-weight: bold; margin: 0 20px; padding: 5px 10px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        nav a:hover {
+            color: var(--color-texto);
+            text-shadow: 0 0 5px var(--color-neón-magenta), 0 0 15px var(--color-neón-magenta);
+        }
+
+        /* ------------------------------------------------------------------- */
+        /* CSS ESPECÍFICO DE HOME (Reproductor y Hero) */
+        /* ------------------------------------------------------------------- */
+        
+        @keyframes neon-glow {
+            0%, 100% { text-shadow: 0 0 5px var(--color-neón-cian), 0 0 10px var(--color-neón-magenta); }
+            50% { text-shadow: 0 0 10px var(--color-neón-magenta), 0 0 20px var(--color-neón-cian); }
+        }
+
+        .hero {
+            background-color: var(--color-bg-oscuro);
+            padding: 80px 40px; text-align: center;
+            border-bottom: 4px solid var(--color-neón-cian);
+        }
+
+        .hero-title {
+            font-size: 3.5em; text-transform: uppercase; margin-bottom: 10px;
+            color: var(--color-texto); animation: neon-glow 2s infinite alternate;
+        }
+        
+        /* CONTENEDOR DE IVOOX (LIMPIO Y CENTRADO) */
+        .ivoox-container {
+            max-width: 800px; margin: 50px auto; padding: 0 20px; 
+        }
+
+        .embed-responsive {
+            position: relative; overflow: hidden; padding-bottom: 30%; 
+            height: 0; margin-bottom: 20px;
+        }
+
+        .embed-responsive iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; 
+        }
+        
+        /* BLOQUE DE REDES SOCIALES */
+        .social-home-section {
+            max-width: 800px; margin: 50px auto; padding: 40px;
+            background-color: var(--color-cuerpo-oscuro);
+            border-top: 3px solid var(--color-neón-magenta);
+            border-bottom: 3px solid var(--color-neón-magenta);
+            text-align: center;
+        }
+
+        .social-title {
+             color: var(--color-neón-cian); text-transform: uppercase; margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: var(--color-texto); font-size: 2.5em; margin: 0 15px; transition: color 0.3s, box-shadow 0.3s, background-color 0.3s;
+            text-decoration: none; display: inline-block;
+            width: 50px; 
+            height: 50px; 
+            line-height: 50px;
+            border-radius: 50%; 
+            border: 2px solid var(--color-neón-magenta);
+            background-color: transparent;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-neón-cian);
+            border-color: var(--color-neón-cian);
+            box-shadow: 0 0 10px var(--color-neón-cian), 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .social-icons a.youtube:hover {
+            color: #ff0000; 
+            border-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            text-align: center; padding: 20px; background-color: var(--color-bg-oscuro);
+            color: #555; font-size: 0.9em; border-top: 1px solid #333;
+        }
+
+
+        /* Responsive (Ajustes para móvil/tableta) */
+        @media (max-width: 768px) {
+            header { 
+                flex-direction: column; /* Apila los elementos en vertical */
+                min-height: auto; 
+                padding: 20px;
+                gap: 15px; /* Reduce el espacio entre elementos apilados */
+            }
+            .header-item { flex-basis: 100%; margin-bottom: 0; }
+            /* Vuelve a la configuración de móvil para que no sean enormes */
+            .main-logo { max-width: 60%; } /* Ajusta el logo central para móvil */
+            .my-photo, .secondary-logo { max-width: 50%; } /* Ajusta los laterales para móvil */
+            nav a { display: block; margin: 10px 0; }
+            .social-icons a { font-size: 2em; width: 40px; height: 40px; line-height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-item"> <img src="tu_foto.png" alt="Tu Foto de DJ" class="my-photo"> </div>
+    <div class="header-item"> <img src="logo_principal.png" alt="AFTER RADIO SHOW Logo Principal" class="main-logo"> </div>
+    <div class="header-item"> <img src="logo_secundario.png" alt="Logo Secundario de AFTER RADIO SHOW" class="secondary-logo"> </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="after_radio_show.html">Bio / DJ</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<div class="hero">
+    <h1 class="hero-title">¡El After Ya Está Sonando!</h1>
+    <p class="hero-subtitle">Escucha, descarga y revive la historia del dance.</p>
+</div>
+
+<div class="ivoox-container" id="ivoox-player">
+    <div class="embed-responsive">
+        <iframe src="https://www.ivoox.com/player_ej_159424378_6_1.html?c1=450849" width="100%" height="200" frameborder="0" allowfullscreen="" scrolling="no" loading="lazy"></iframe>
+    </div>
+</div>
+
+<div class="social-home-section">
+    <h2 class="social-title">Sigue el Beat en Redes</h2>
+    <p>Conecta con AFTER RADIO SHOW y comparte la mejor música remember.</p>
+    <div class="social-icons">
+        
+        <a href="URL_FACEBOOK" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        
+        <a href="URL_INSTAGRAM" target="_blank"><i class="fab fa-instagram"></i></a>
+        
+        <a href="https://www.youtube.com/@ribesdj" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        
+        <a href="URL_IVOX" target="_blank"><i class="fas fa-podcast"></i></a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 AFTER RADIO SHOW. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

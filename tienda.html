@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFTER RADIO SHOW | Tienda Oficial - Merchandising</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* DEFINICIÓN DE COLORES VIBRANTES */
+        :root {
+            --color-bg-oscuro: #0a0a0a;
+            --color-cuerpo-oscuro: #161616;
+            --color-neón-cian: #00ffff;
+            --color-neón-magenta: #ff0099;
+            --color-texto: #ffffff;
+        }
+
+        /* ESTILOS GLOBALES Y DE FONDO */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-bg-oscuro);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* ------------------------------------------------------------------- */
+        /* CABECERA Y NAVEGACIÓN (CSS Común) - NUEVA VERSIÓN DINÁMICA */
+        /* ------------------------------------------------------------------- */
+        header {
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-end; 
+            padding: 20px 40px 0px 40px; 
+            background-color: var(--color-cuerpo-oscuro);
+            border-bottom: 3px solid var(--color-neón-cian); 
+            min-height: 250px; 
+            flex-wrap: nowrap; 
+            gap: 30px; 
+        }
+        
+        .header-item {
+            display: flex; 
+            flex-direction: column;
+            justify-content: flex-end; 
+            align-items: center; 
+            height: 100%;
+            padding-bottom: 5px; 
+        }
+        
+        .my-photo, .secondary-logo {
+            max-width: 200px; 
+            height: auto; 
+            object-fit: contain; 
+            filter: drop-shadow(0 0 10px rgba(255, 0, 153, 0.5)); 
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .main-logo {
+            max-width: 350px; 
+            height: auto; 
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.7)); 
+            transition: all 0.3s ease-in-out;
+        }
+
+        .header-item img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px var(--color-neón-cian)) brightness(1.2);
+        }
+
+        /* NAVEGACIÓN FIJA (STICKY) */
+        nav {
+            background-color: #1a1a1a; 
+            padding: 15px 40px;
+            border-bottom: 2px solid var(--color-neón-magenta); 
+            text-align: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        nav a {
+            color: var(--color-neón-magenta); text-decoration: none; text-transform: uppercase;
+            font-weight: bold; margin: 0 20px; padding: 5px 10px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        nav a:hover {
+            color: var(--color-texto);
+            text-shadow: 0 0 5px var(--color-neón-magenta), 0 0 15px var(--color-neón-magenta);
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* CSS ESPECÍFICO DE TIENDA */
+        /* ------------------------------------------------------------------- */
+        .shop-title {
+            text-align: center; color: var(--color-neón-magenta);
+            text-transform: uppercase; margin: 40px 0 50px 0;
+            font-size: 2.5em;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: var(--color-cuerpo-oscuro);
+            border: 1px solid var(--color-neón-magenta);
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 0, 153, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px var(--color-neón-cian);
+        }
+
+        .product-card img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            color: var(--color-neón-cian);
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--color-neón-magenta);
+            margin-bottom: 20px;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--color-neón-magenta);
+            color: var(--color-texto);
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--color-neón-cian);
+            color: var(--color-bg-oscuro);
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            text-align: center; padding: 20px; background-color: var(--color-bg-oscuro);
+            color: #555; font-size: 0.9em; border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { 
+                flex-direction: column; 
+                min-height: auto; 
+                padding: 20px;
+                gap: 15px;
+            }
+            .header-item { flex-basis: 100%; margin-bottom: 0; }
+            .main-logo { max-width: 60%; } 
+            .my-photo, .secondary-logo { max-width: 50%; } 
+            nav a { display: block; margin: 10px 0; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-item"> <img src="tu_foto.png" alt="Tu Foto de DJ" class="my-photo"> </div>
+    <div class="header-item"> <img src="logo_principal.png" alt="AFTER RADIO SHOW Logo Principal" class="main-logo"> </div>
+    <div class="header-item"> <img src="logo_secundario.png" alt="Logo Secundario de AFTER RADIO SHOW" class="secondary-logo"> </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="after_radio_show.html">Bio / DJ</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<h1 class="shop-title">Merchandising Oficial AFTER RADIO SHOW</h1>
+
+<div class="products-grid">
+    
+    <div class="product-card">
+        <img src="producto_camiseta.jpg" alt="Camiseta Logo Neón">
+        <h3>Camiseta Logo Neón</h3>
+        <p>Con el logo original de After Radio Show en un vibrante morado neón.</p>
+        <div class="price">24.99€</div>
+        <a href="URL_COMPRA_CAMISETA" target="_blank" class="buy-btn">Comprar Ahora</a>
+    </div>
+    
+    <div class="product-card">
+        <img src="producto_gorra.jpg" alt="Gorra Ribzoh">
+        <h3>Gorra RIBZOH</h3>
+        <p>Gorra clásica negra con el logo Ribzoh bordado en color cian eléctrico.</p>
+        <div class="price">19.50€</div>
+        <a href="URL_COMPRA_GORRA" target="_blank" class="buy-btn">Comprar Ahora</a>
+    </div>
+
+    <div class="product-card">
+        <img src="producto_taza.jpg" alt="Taza After Radio">
+        <h3>Taza "El After Ya Está Sonando"</h3>
+        <p>Tu café o infusión con el espíritu del remember. Perfecta para la mañana después.</p>
+        <div class="price">12.00€</div>
+        <a href="URL_COMPRA_TAZA" target="_blank" class="buy-btn">Comprar Ahora</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 AFTER RADIO SHOW. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
